@@ -9,4 +9,4 @@ function validateForm() {
             return false;
         }
     }};
-textInput.addEventListener(textInput.focus, validateForm);
+textInput.addEventListener("input", validateForm);

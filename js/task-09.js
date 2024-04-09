@@ -1,17 +1,15 @@
-let btnChange = document.querySelector(".button")
-let showColorName = document.querySelector(".color")
+const body = document.querySelector('body');
+const color = document.querySelector('span.color')
+const colorChangerButton = document.querySelector('button.change-color');
 
-btnChange.addEventListener("click", function(){
-   let color = '#';
-   //create random number and small the number with slice concat with color = #
-   function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, 0)}`;
-  }   // select the body tag 
-   document.body.style.backgroundColor = color
-   // show the color name in screen 
-   showColorName.innerHTML = color
-})
-
+function getRandomHexColor() {
+   return `#${Math.floor(Math.random() * 16777215)
+     .toString(16)
+     .padStart(6, 0)}`;
+ }  
+colorChangerButton.addEventListener('click', () => {
+   body.style.backgroundColor = getRandomHexColor();
+   color.textContent = getRandomHexColor();
+ })
+ 
 
