@@ -1,23 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const decrementButton = document.getElementById("decrement");
-    const incrementButton = document.getElementById("increment");
-    const counterElement = document.getElementById("value");
-
-    let counterValue = 0;
-
-    function updateCounter() {
-        counterElement.textContent = counterValue;
-    }
-
-    decrementButton.addEventListener("click", function() {
-        counterValue--;
-        updateCounter();
-    });
-
-    incrementButton.addEventListener("click", function() {
-        counterValue++;
-        updateCounter();
-    });
+const decrementEl = document.querySelector('[data-action="decrement"]');
+const incrementEl = document.querySelector('[data-action="increment"]');
+const counterValue = document.querySelector('#value');
+const counter = {
+    value: 0,
+    decrement() {
+        this.value -= 1;
+    },
+    increment() {
+        this.value += 1;
+    },
+};
+decrementEl.addEventListener('click', () => {
+    counter.decrement();
+    counterValue.textContent = counter.value;
+});
+incrementEl.addEventListener('click', () => {
+    counter.increment();
+    counterValue.textContent = counter.value;
 });
 
 

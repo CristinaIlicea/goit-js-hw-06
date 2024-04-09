@@ -17,14 +17,8 @@ const images = [
 
 
 
-
-  var container = document.getElementById('imageContainer');
-
-  const list = document.querySelector(".gallery");
-  images.forEach((image) => {
-    let img = document.createElement("img");
-    img.setAttribute("class", "picture");
-    img.setAttribute("name", image.alt);
-    img.setAttribute("src", image.url);
-    list.insertAdjacentHTML("beforeend", "<li></li>", document.getElementsByClassName("picture"));
-  });
+  const ulGallery = document.querySelector(".gallery");
+  const liItem = images
+  .map((image) => `<li><img src="${image.url}" alt=${image.alt}></li>`)
+  .join("");
+ulGallery.insertAdjacentHTML("afterbegin", liItem);
