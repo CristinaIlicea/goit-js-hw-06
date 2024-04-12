@@ -1,7 +1,8 @@
-const textInput = document.querySelector(".name-input");
-const output = document.querySelector(".name-output");
+const nameInput = document.getElementById("name-input");
+const nameOutput = document.getElementById("name-output");
 
-textInput.addEventListener("input", (event) => {
-    output.textContent = event.currentTarget.value;
+nameInput.addEventListener("input", () => {
+    const inputValue = nameInput.value.trim();
+    nameOutput.textContent = inputValue === "" ? "Anonymus" : inputValue;
 })
 

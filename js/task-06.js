@@ -1,12 +1,13 @@
-const textInput = document.querySelector(".validation-input");
-const dataLength = document.querySelector(".data-length");
+const textInput = document.getElementById("validation-input");
+textInput.addEventListener("blur", validateForm);
 
 function validateForm() {
-    let form = document.getElementById('validation-input');
-    for (var i=0; i< validation-input.length; i++) {
-        if(validation-input.length <= dataLength) {
-            alert("Please enter 6 symbols");
-            return false;
+    const correctLength = this.dataset.length;
+    const inputDataLength = this.value.length;
+    
+        if(correctLength <= inputDataLength) {
+            this.style.borderColor = "#4caf50";
+        } else {
+          this.style.borderColor = "#f44336";
         }
-    }};
-textInput.addEventListener("input", validateForm);
+    };
